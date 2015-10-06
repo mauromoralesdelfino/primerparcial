@@ -1,5 +1,5 @@
 function MostrarIngreso()
-{
+{   
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
 		type:"post",
@@ -19,16 +19,28 @@ function MostrarIngreso()
 
 function MostrarVotacion()
 {
-	alert("VOTACION MFKR");
+	
 	var funcionAjax=$.ajax({
         url:"nexo.php",
 		type:"post",
 		data:{queHacer:"MostrarVotacion"}
 	});
 	funcionAjax.done(function(retorno){
-		alert("holaaa");
-		$("#principal").html(retorno);
-		$("#informe").html("Realice votacion !");
+		//alert(retorno+"fsddsfds");
+		//console.log("4"+retorno+"4");
+		if (retorno.trim()=="NO") 
+		{
+			
+			MostrarIngreso();
+				
+		}
+		else
+		{
+			
+			$("#principal").html(retorno);
+			$("#informe").html("Realice votacion !");
+		}
+		
 
 	});
 	funcionAjax.fail(function(retorno){

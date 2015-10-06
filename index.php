@@ -81,6 +81,13 @@
 				<!--contenido dinamico cargado por ajax-->
 		</div>
 		<!-- /.widget -->
+		<section class="widget clearfix" >
+			<h4 class="widgettitle">informe </h4>
+				<div id="informe">
+				<!--contenido dinamico cargado por ajax-->
+				</div>
+			
+		</section>
 
 		<section class="widget clearfix" >
 			<h4 class="widgettitle">Contador de votos</h4>
