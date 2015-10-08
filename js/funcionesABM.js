@@ -26,7 +26,7 @@ function GuardarVoto()
 
 	var id=$("#idVOTO").val();
 	var provincia=$("#provincia").val();
-	var sexo=$("#sexo").val();
+	var sexo=$("#sexo:checked").val();
 	var presidente=$("#presidente").val();
 	
 	
