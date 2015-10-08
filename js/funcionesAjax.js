@@ -24,6 +24,7 @@ function MostrarVotacion()
         url:"nexo.php",
 		type:"post",
 		data:{queHacer:"MostrarVotacion"}
+		
 	});
 	funcionAjax.done(function(retorno){
 		//alert(retorno+"fsddsfds");
@@ -32,7 +33,8 @@ function MostrarVotacion()
 		{
 			
 			MostrarIngreso();
-				
+			
+
 		}
 		else
 		{
@@ -46,6 +48,27 @@ function MostrarVotacion()
 	funcionAjax.fail(function(retorno){
 
 		//bla bla bla
+	});
+
+}
+
+
+function Listado()
+{
+	var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{queHacer:"MostrarListado"}
+	});
+
+	funcionAjax.done(function(retorno){
+		$("#principal").html(retorno);
+		$("#informe").html("Correcto!!!");
+		
+	})
+funcionAjax.fail(function(retorno){
+		$("#principal").html(":(");
+		$("#informe").html(retorno.responseText);	
 	});
 
 }

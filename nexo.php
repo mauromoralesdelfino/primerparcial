@@ -1,6 +1,6 @@
 <?php
 require_once("clases/AccesoDatos.php");
-//require_once("clases/voto.php");
+require_once("clases/voto.php");
 
 
 $queHago=$_POST['queHacer'];
@@ -8,7 +8,7 @@ $queHago=$_POST['queHacer'];
 
 switch ($queHago) {
 	case 'MostrarIngreso':
-		// echo"<script>alert('login.php!!!!')</script>";
+		 //echo"<script>alert('login.php!!!!')</script>";
  			include("partes/FormIngreso.php");
 		break;
 	
@@ -16,6 +16,25 @@ switch ($queHago) {
 			//echo"<script>alert('votar.php!!!!')</script>";
 			include("partes/frmVoto.php");
 			break;
+
+	case 'MostrarListado':
+			include("partes/listado.php");
+			break;
+	
+	case 'BorrarVoto':
+			$voto= new voto();
+			$voto->id=$_POST['id'];
+			$cantidad=$voto->BorrarVoto();
+			echo $cantidad;
+
+	case 'GuardarVoto':
+			$voto= new voto();
+			$voto->id=$_POST['id'];
+			$voto->provincia=$_POST['provincia'];
+			$voto->sexo=$_POST['sexo'];
+			$voto->presidente=$_POST['presidente'];
+			$cantidad = $voto->GuardarVoto();
+			echo $cantidad;
 
 	default:
 

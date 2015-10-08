@@ -39,11 +39,12 @@
 			<ul id="main-nav" class="clearfix">
 				<li><a onclick="MostrarIngreso()" class="btn">Ingreso</a></li>
 				<li><a onclick="MostrarVotacion()" class="btn">Ir a VOTACIÓN</a> </li>
-				<li><a onclick="" class="btn">Listado de Votaciones</a> </li>
+				<li><a onclick="Listado()" class="btn">Listado de Votaciones</a> </li>
 				
 			</ul>
 			<!-- /#main-nav --> 
 		</nav>
+		
 
 		<form id="searchform">
 			
@@ -81,14 +82,13 @@
 				<!--contenido dinamico cargado por ajax-->
 		</div>
 		<!-- /.widget -->
-		<section class="widget clearfix" >
+<section class="widget clearfix" >
 			<h4 class="widgettitle">informe </h4>
 				<div id="informe">
 				<!--contenido dinamico cargado por ajax-->
 				</div>
 			
 		</section>
-
 		<section class="widget clearfix" >
 			<h4 class="widgettitle">Contador de votos</h4>
 				<div id="Contador">
