@@ -57,3 +57,28 @@ function GuardarVoto()
 		$("#informe").html(retorno.responseText);
 	});
 }
+
+function EditarVoto(idParametro)
+{
+	var funcionAjax=$.ajax({
+		url:"nexo.php",
+		type:"post",
+		data:{
+			queHacer:"TraerVoto",
+			id:idParametro
+		}
+	});
+
+	funcionAjax.done(function(retorno){
+		var voto=JSON.parse(retorno);
+		$("#idVOTO").val(voto.id);
+		$("#sexo").val(voto.sexo);
+		$("#provincia").val(voto.provincia);
+		$("#presidente").val(voto.presidente);
+	});
+	funcionAjax.fail(function(retorno){
+	$("#informe").html(retorno.responseText);
+
+	})
+	MostrarVotacion();
+}

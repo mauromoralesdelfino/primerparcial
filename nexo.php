@@ -15,17 +15,18 @@ switch ($queHago) {
 	case 'MostrarVotacion':
 			//echo"<script>alert('votar.php!!!!')</script>";
 			include("partes/frmVoto.php");
-			break;
+		break;
 
 	case 'MostrarListado':
 			include("partes/listado.php");
-			break;
+		break;
 	
 	case 'BorrarVoto':
 			$voto= new voto();
 			$voto->id=$_POST['id'];
 			$cantidad=$voto->BorrarVoto();
 			echo $cantidad;
+		break;
 
 	case 'GuardarVoto':
 			$voto= new voto();
@@ -35,6 +36,14 @@ switch ($queHago) {
 			$voto->presidente=$_POST['presidente'];
 			$cantidad = $voto->GuardarVoto();
 			echo $cantidad;
+			$cuki=$_POST['provincia'];
+			setcookie("provincia",$cuki);
+		break;
+
+	case 'TraerVoto':
+			$voto = voto::TraerVoto($_POST['id']);
+			echo json_encode($voto);
+		break;
 
 	default:
 

@@ -9,7 +9,7 @@ if(isset($_SESSION['registro'])){  ?>
 <form  class="form-ingreso" onsubmit="GuardarVoto();return false">
 	<h2 class="form-ingreso-heading">VOTACION</h2>
 	<label for="provincia" class="sr-only">PROVINCIA</label>
-	<input type="text" id="provincia" class="form-control" placeholder="Ingrese Provincia"  title="Ingrese Provincia" required="" >
+	<input type="text" id="provincia" class="form-control" placeholder="Ingrese Provincia"  title="Ingrese Provincia" required="" value="<?php  if(isset($_COOKIE["provincia"])){echo $_COOKIE["provincia"];}?>">
 	<label for="sexo" class="sr-only">SEXO</label>
 	<input type="radio" id="sexo" name="sexo" value="masculino" required="">Masculino<br>
 	<input type="radio" id="sexo" name="sexo" value="femenino" required="">Femenino

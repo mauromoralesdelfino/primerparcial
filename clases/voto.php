@@ -39,13 +39,24 @@ public function BorrarVoto()
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();
  }
 
+ public function ModificarVotoParametros()
+	 {
+			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("CALL ModificarVotoParametros(:id,:sexo,:presidente,:provincia)");
+			$consulta->bindValue(':id',$this->id, PDO::PARAM_INT);
+			$consulta->bindValue(':sexo',$this->sexo, PDO::PARAM_INT);
+			$consulta->bindValue(':presidente', $this->presidente, PDO::PARAM_STR);
+			$consulta->bindValue(':provincia', $this->provincia, PDO::PARAM_STR);
+			return $consulta->execute();
+	 }
+
  public function GuardarVoto()
  {
    
  	if ($this->id>0) 
  	{
  		
- 		//$this->ModificarVotoParametros();
+ 		$this->ModificarVotoParametros();
  	}else
  	{
  		$this->InsertarElVotoParametros();
@@ -53,7 +64,18 @@ public function BorrarVoto()
 
  }
 
-}
+	public static function TraerVoto($id)
+	{
+
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+			$consulta =$objetoAccesoDato->RetornarConsulta("select id, sexo as sexo, presidente as presidente,provincia as provincia from votos where id = $id");
+			$consulta->execute();
+			$votoBuscado= $consulta->fetchObject('voto');
+			return $votoBuscado;
+	}
+
+
+}//clase
 
 
 ?>
