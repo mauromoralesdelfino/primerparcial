@@ -76,11 +76,19 @@ function EditarVoto(idParametro)
 	funcionAjax.done(function(retorno){
 		var voto=JSON.parse(retorno);
 		$("#idVOTO").val(voto.id);
-		$("#sexo").val(voto.sexo);
 		$("#provincia").val(voto.provincia);
 		$("#localidad").val(voto.localidad);
         $("#direccion").val(voto.direccion);
 		$("#presidente").val(voto.presidente);
+		/*if(voto.sexo == "F")
+             $('input:radio[name="sexo"][value="F"]').prop('checked', true);
+        else
+            $('input:radio[name="sexo"][value="M"]').prop('checked', true);	*/
+		if(voto.sexo=="femenino")
+			$('input:radio[name="sexo"][value=femenino]').prop('checked',true);
+		else
+			$('input:radio[name="sexo"][value=masculino]').prop('checked',true);
+		
 	});
 	funcionAjax.fail(function(retorno){
 	$("#informe").html(retorno.responseText);
