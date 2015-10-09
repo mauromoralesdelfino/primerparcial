@@ -28,6 +28,8 @@ function GuardarVoto()
 	var provincia=$("#provincia").val();
 	var sexo=$("#sexo:checked").val();
 	var presidente=$("#presidente").val();
+	var localidad=$("#localidad").val();
+    var direccion=$("#direccion").val();
 	
 	
 	var funcionAjax=$.ajax({
@@ -39,6 +41,8 @@ function GuardarVoto()
 			provincia:provincia,
 			sexo:sexo,
 			presidente:presidente,
+			localidad:localidad,
+            direccion: direccion
 			
 
 		}
@@ -74,6 +78,8 @@ function EditarVoto(idParametro)
 		$("#idVOTO").val(voto.id);
 		$("#sexo").val(voto.sexo);
 		$("#provincia").val(voto.provincia);
+		$("#localidad").val(voto.localidad);
+        $("#direccion").val(voto.direccion);
 		$("#presidente").val(voto.presidente);
 	});
 	funcionAjax.fail(function(retorno){
